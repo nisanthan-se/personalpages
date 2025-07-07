@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body 
+        {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: darkblue;
+            color: #fff;
+        }
+        .hero 
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 30vh;
+            gap: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero img 
+        {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+        }
+        .hero h1 
+        {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8em;
+            margin: 0 0 10px 0;
+            letter-spacing: 2px;
+            color: #ffd700;
+            text-shadow: 2px 2px 8px #2228;
+        }
+        .hero p 
+        {
+            font-size: 1.3em;
+            margin: 0 0 18px 0;
+            color: black;
+            font-weight: bold;
+        }
+        .hero .cta, .hero .cv-btn
+         {
+            background: #ffd700;
+            color: #1e3c72;
+            padding: 12px 32px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #0002;
+            transition: background 0.2s, color 0.2s;
+            margin: 8px 8px 0 8px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .hero .cta:hover, .hero .cv-btn:hover 
+        {
+            background: #fff;
+            color: black;
+        }
+        nav 
+        {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            background: black;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        nav a 
+        {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+        nav a:hover 
+        {
+            color: black;
+        }
+        section 
+        {
+            max-width: 1000px;
+            margin: 48px auto;
+            background-color:rgba(0,0,0,0.6);
+            backdrop-filter: blur(1px);
+            -webkit-backdrop-filter: blur(1px);
+            border-radius: 16px;
+            box-shadow: 0 2px 16px black;
+            padding: 40px 32px;
+        }
+        h2 
+        {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffd700;
+            margin-top: 0;
+            font-size: 2em;
+        }
+        .info-list 
+        {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 16px 0;
+            color: #fff;
+            font-size: 1.1em;
+        }
+        .info-list li 
+        {
+            margin-bottom: 8px;
+        }
+        .skills 
+        {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 18px;
+        }
+        .skill 
+        {
+            background: #fff;
+            color: #2a5298;
+            padding: 10px 22px;
+            border-radius: 24px;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 5px 8px black;
+            transition: background 0.2s, color 0.2s;
+        }
+        .skill:hover 
+        {
+            background: #ffd700;
+            color: black;
+        }
+        .education 
+        {
+            margin-top: 18px;
+        }
+        .education-item 
+        {
+            margin-bottom: 12px;
+        }
+        .achievements 
+        {
+            margin-top: 18px;
+        }
+        .achievement 
+        {
+            background: #fff;
+            color: #2a5298;
+            border-radius: 10px;
+            padding: 12px 18px;
+            margin-bottom: 12px;
+            box-shadow: 0 1px 6px #0001;
+        }
+        .projects 
+        {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 32px;
+            margin-top: 24px;
+        }
+        .project 
+        {
+            background: #fff;
+            color: #2a5298;
+            border-radius: 12px;
+            padding: 24px 18px;
+            box-shadow: 0 2px 12px #0002;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .project:hover 
+        {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px #0003;
+        }
+        .project h3 
+        {
+            margin-top: 0;
+            color: #1e3c72;
+        }
+        .project p 
+        {
+            color: #333;
+        }
+        .contact 
+        {
+            text-align: center;
+            margin-top: 24px;
+        }
+        .contact a 
+        {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .contact a:hover 
+        {
+            color: #fff;
+        }
+        footer 
+        {
+            text-align: center;
+            padding: 15px 0;
+            background: black;
+            color: #ffd700;
+            font-size: 1.1em;
+            margin-top: 48px;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 700px) 
+        {
+            section {
+                padding: 24px 8px;
+            }
+            .hero h1 {
+                font-size: 2em;
+            }
+        }
+        .double 
+        {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+           
+        }
+        #skills, #education 
+        {
+            margin: 0px;
+            max-width: 495px;
+            max-height: 495px;    
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="he1">
+        <img src="PROFILEPICTURE.jpg" alt="Profile Photo">
+        </div>
+        <div class="he2">
+        <h1>VARATHARASA NISANTHAN</h1>
+        <p>Creative Web Developer & Designer</p>
+        <div>
+            <button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact Me</button>
+            <a class="cv-btn" href="cv.pdf" download>Download CV</a>
+        </div>
+        </div>
+    </div>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section id="about">
+        <h2>Basic Information</h2>
+        <ul class="info-list">
+            <li><strong>Name:</strong> Varatharasa Nisanthan</li>
+            <li><strong>Date of Birth:</strong> 2002-08-28</li>
+            <li><strong>Location:</strong> 50, Kannapuram, Navanthurai, Jaffna.</li>
+            <li><strong>Email:</strong> varatharasanisanthan@gmail.com</li>
+        </ul>
+        <p>Hi! I'm a passionate developer who loves building beautiful, interactive web experiences. My focus is on modern, responsive design and seamless user experiences. I enjoy learning new technologies and collaborating on creative projects.</p>
+    </section>
+    <div class="double">
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+            <span class="skill">HTML5</span>
+            <span class="skill">CSS3</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">React</span>
+            <span class="skill">Node.js</span>
+            <span class="skill">UI/UX Design</span>
+            <span class="skill">Python</span>
+            <span class="skill">Figma</span>
+        </div>
+    </section>
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education">
+            <div class="education-item">
+                <strong>BSc in Software Engineering</strong> – University of SRI JAYEWARDENEPURA,2024-2027
+            </div>
+            <div class="education-item">
+                <strong>G.C.E. Advanced Level</strong> – Mathematics Stream, 2021
+            </div>
+        </div>
+    </section>
+    </div>
+    <section id="achievements">
+        <h2>Achievements</h2>
+        <div class="achievements">
+            <div class="achievement">Winner, National Coding Challenge 2025</div>
+            <div class="achievement">Dean's List, University of SRI JAYEWARDENEPURA (2024, 2025)</div>
+            <div class="achievement">Published research on Web Accessibility, 2025</div>
+        </div>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>Animated Portfolio</h3>
+                <p>A personal website with smooth animations and interactive sections. Built with React and GSAP for a dynamic user experience.</p>
+            </div>
+            <div class="project">
+                <h3>Task Manager App</h3>
+                <p>A productivity app to manage daily tasks, featuring drag-and-drop and real-time sync. Built with Node.js and MongoDB.</p>
+            </div>
+            <div class="project">
+                <h3>Design System</h3>
+                <p>A reusable component library and design system for rapid prototyping. Styled with CSS-in-JS and Storybook.</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact">
+            <p>Email: <a href="mailto:varatharasanisanthan@gmail.com">varatharasanisanthan@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+        </div>
+    </section>
+    <footer>
+        &copy; 2025 VARATHARASA NISANTHAN. Designed with ❤️
+    </footer>
+</body>
+</html>
+
